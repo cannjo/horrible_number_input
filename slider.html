@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Slider</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+
+    <div class="slidecontainer">
+        <input type="range" min="10000000" max="99999999" class="slider" id="myRange" disabled>
+        <p>Value: <span id="demo"></span></p>
+    </div>
+    <button id="decrementBtn" type="button">-1</button>
+    <button id="incrementBtn" type="button">+1</button>
+
+<script>
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    var decrementBtn = document.getElementById("decrementBtn");
+    var incrementBtn = document.getElementById("incrementBtn");
+
+    output.innerHTML = slider.value;
+
+    slider.oninput = function() {
+        output.innerHTML = this.value;
+    }
+
+    decrementBtn.onclick = function() {
+        slider.value = parseInt(slider.value) - 1;
+        output.innerHTML = slider.value;
+    }
+
+    incrementBtn.onclick = function() {
+        slider.value = parseInt(slider.value) + 1;
+        output.innerHTML = slider.value;
+    }
+</script>
+</body>
+</html>
